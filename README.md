@@ -45,9 +45,7 @@ By leveraging AI in sales calls, this project aims to:
    ```
 ## 📹 Demo Video
 
-<video width="100%" controls>
-  <source src="live demo AI sales assistance.mp4" type="video/mp4">
-</video>
+[Click here to watch the demo](https://drive.google.com/file/d/1On3RrZdOIfMgq4zZLBdkfvOT1X8fgOBR/view?usp=sharing)
 
 ## Future Enhancements
 - **Multilingual Support**: Expanding NLP capabilities to support multiple languages.
