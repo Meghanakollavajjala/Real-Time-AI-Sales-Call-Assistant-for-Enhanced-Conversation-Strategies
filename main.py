@@ -22,7 +22,7 @@ except LookupError:
 sia = SentimentIntensityAnalyzer()
 
 # Set up Google Gemini API key
-GEMINI_API_KEY = "AIzaSyAKJ_djNULsDv7Caayr_RCGSL_jcciyFUY"
+GEMINI_API_KEY = your_api_key_here
 genai.configure(api_key=GEMINI_API_KEY)
 
 class AI_Project_Functions:
