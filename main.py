@@ -10,16 +10,19 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 import google.generativeai as genai
 from datetime import datetime
 import pytz
+
+
 # Ensure necessary NLTK data is available
 try:
     nltk.data.find('sentiment/vader_lexicon.zip')
 except LookupError:
     nltk.download('vader_lexicon')
+
 # Initialize Sentiment Analyzer
 sia = SentimentIntensityAnalyzer()
 
 # Set up Google Gemini API key
-GEMINI_API_KEY = "AIzaSyBa3mrLgkpD53GYjceNVjHxAXmr6Sco99U"
+GEMINI_API_KEY = "AIzaSyAKJ_djNULsDv7Caayr_RCGSL_jcciyFUY"
 genai.configure(api_key=GEMINI_API_KEY)
 
 class AI_Project_Functions:
@@ -106,7 +109,7 @@ class AI_Project_Functions:
     def query_gemini(prompt):
         """Queries Google Gemini API for AI-generated responses."""
         try:
-            model = genai.GenerativeModel("gemini-pro")
+            model = genai.GenerativeModel("gemini-1.5-flash")
             response = model.generate_content(prompt)
             return response.text.strip()  # Extract response text
         except Exception as e:
@@ -208,7 +211,7 @@ class AI_Project_Functions:
         current_datetime = datetime.now(ist_timezone).strftime("%Y-%m-%d %H:%M:%S %p")  
         p_query = f""" Prepare a Persuasive Response like below(only the format not content it is for negative feedback, if query is positive return positively) for the query -  {query}, Customer name {customer_name} (English Only)
         Persuasive Response:
-            - Acknowledge and apologize: "Mr/Ms. Pratheek Rao K B, I sincerely apologize for the inconvenience caused. We understand how frustrating this can be."
+            - Acknowledge and apologize: "Mr. Pratheek Rao K B, I sincerely apologize for the inconvenience caused. We understand how frustrating this can be."
             - Emphasize investigation: "We have initiated an immediate investigation into this matter."
             - Offer resolution: "As a token of our commitment, we would like to offer you a full refund or a replacement product of your choice."
             - Highlight company values: "At Infosys Springboard Intern AI Center, we value customer satisfaction above all else."
@@ -230,7 +233,7 @@ class AI_Project_Functions:
             {str(persuasive_response)}
             \n
             Closing: \n
-            Mr/Ms. {customer_name}, we appreciate your patience. Thank you for bringing this matter to our attention.
+            Mr. {customer_name}, we appreciate your patience. Thank you for bringing this matter to our attention.
         """
         return str(summary)
 
@@ -238,7 +241,7 @@ class AI_Project_Functions:
 st.set_page_config(page_title="AI Sales Call Assistant", layout="wide", page_icon="📞")
 
 # Title of the application
-st.title("📞 Real Time AI Sales Call Assistant")
+st.title("📞 AI Sales Call Assistant")
 st.markdown("---")
 
 def speech_to_text():
